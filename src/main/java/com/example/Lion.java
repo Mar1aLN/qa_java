@@ -3,8 +3,7 @@ package com.example;
 import java.util.List;
 
 public class Lion {
-    private IFeline iFeline;
-
+    private final IFeline iFeline;
 
     boolean hasMane;
 

@@ -3,33 +3,32 @@
 import java.util.List;
 
 public class Lion {
-    private IFeline iFeline;
-
+    private final IFeline iFeline;
 
     boolean hasMane;
 
-<span class="fc" id="L11">    public Lion(String sex, IFeline iFeline) throws Exception {</span>
-<span class="fc" id="L12">        this.iFeline = iFeline;</span>
+<span class="fc" id="L10">    public Lion(String sex, IFeline iFeline) throws Exception {</span>
+<span class="fc" id="L11">        this.iFeline = iFeline;</span>
 
-<span class="fc bfc" id="L14" title="All 2 branches covered.">        if (&quot;Самец&quot;.equals(sex)) {</span>
-<span class="fc" id="L15">            hasMane = true;</span>
-<span class="fc bfc" id="L16" title="All 2 branches covered.">        } else if (&quot;Самка&quot;.equals(sex)) {</span>
-<span class="fc" id="L17">            hasMane = false;</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        if (&quot;Самец&quot;.equals(sex)) {</span>
+<span class="fc" id="L14">            hasMane = true;</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">        } else if (&quot;Самка&quot;.equals(sex)) {</span>
+<span class="fc" id="L16">            hasMane = false;</span>
         } else {
-<span class="fc" id="L19">            throw new Exception(&quot;Используйте допустимые значения пола животного - самей или самка&quot;);</span>
+<span class="fc" id="L18">            throw new Exception(&quot;Используйте допустимые значения пола животного - самей или самка&quot;);</span>
         }
-<span class="fc" id="L21">    }</span>
+<span class="fc" id="L20">    }</span>
 
     public int getKittens() {
-<span class="fc" id="L24">        return iFeline.getKittens();</span>
+<span class="fc" id="L23">        return iFeline.getKittens();</span>
     }
 
     public boolean doesHaveMane() {
-<span class="fc" id="L28">        return hasMane;</span>
+<span class="fc" id="L27">        return hasMane;</span>
     }
 
     public List&lt;String&gt; getFood() throws Exception {
-<span class="fc" id="L32">        return iFeline.getFood(&quot;Хищник&quot;);</span>
+<span class="fc" id="L31">        return iFeline.getFood(&quot;Хищник&quot;);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

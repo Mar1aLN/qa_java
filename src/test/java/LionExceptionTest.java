@@ -1,26 +1,26 @@
 import com.example.IFeline;
 import com.example.Lion;
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LionExceptionTest {
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     @Mock
-    IFeline iFeline;
+    IFeline feline;
 
     @Test
-    public void test(){
-        try {
-            Lion lion = new Lion("Дивергент", iFeline);
-            Assert.fail("При создании льва невозможного пола не срабатывает исключение");
-        } catch (Exception e) {
-            Assert.assertEquals("Текст исключения при создании льва недопустимого пола не соответствует ожидаемому"
-                    , "Используйте допустимые значения пола животного - самей или самка"
-                    , e.getMessage());
-        }
+    public void test() throws Exception {
+        thrown.expect(Exception.class);
+        thrown.expectMessage("Используйте допустимые значения пола животного - самей или самка");
+        Lion lion = new Lion("Дивергент", feline);
+
     }
 }

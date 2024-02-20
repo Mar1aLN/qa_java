@@ -1,18 +1,19 @@
 import com.example.Feline;
-import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
-
-import java.util.List;
+import org.junit.rules.ExpectedException;
 
 public class FelineExceptionTest {
-    @Test
-    public void test(){
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
+    @Test()
+    public void testFelineFoodException() throws Exception {
+        thrown.expect(Exception.class);
+        thrown.expectMessage("Неизвестный вид животного, используйте значение Травоядное или Хищник");
+
         Feline feline = new Feline();
-        try {
-            feline.getFood("Дивергент");
-            Assert.fail("При получении списка еды невозможного семейства Кошачьих не создается исключение");
-        } catch (Exception e) {
-        }
+        feline.getFood("Дивергент");
 
     }
 }

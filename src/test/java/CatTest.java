@@ -1,23 +1,25 @@
 import com.example.Cat;
 import com.example.Feline;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-
 import java.util.List;
 
 public class CatTest {
+    Cat cat;
 
-    @Test
-    public void test(){
+    @Before
+    public void init(){
         Feline feline = new Feline();
-        Cat cat = new Cat(feline);
-
+        cat = new Cat(feline);
+    }
+    @Test
+    public void catSoundTest(){
         Assert.assertEquals("Звук кота не \"Мяу\"","Мяу", cat.getSound());
 
-        try {
-            Assert.assertEquals("Список еды не соответствует еде хищника", List.of("Животные", "Птицы", "Рыба"), cat.getFood());
-        } catch (Exception e) {
-            Assert.fail("При получении списка еды произошла ошика: " + e.getMessage());
-        }
+    }
+    @Test()
+    public void catFoodTest() throws Exception {
+        Assert.assertEquals("Список еды не соответствует еде хищника", List.of("Животные", "Птицы", "Рыба"), cat.getFood());
     }
 }
