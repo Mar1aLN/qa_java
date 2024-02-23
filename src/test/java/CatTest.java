@@ -18,7 +18,7 @@ public class CatTest {
         Assert.assertEquals("Звук кота не \"Мяу\"","Мяу", cat.getSound());
 
     }
-    @Test()
+    @Test
     public void catFoodTest() throws Exception {
         Assert.assertEquals("Список еды не соответствует еде хищника", List.of("Животные", "Птицы", "Рыба"), cat.getFood());
     }

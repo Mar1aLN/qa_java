@@ -15,6 +15,8 @@ import java.util.List;
 
 @RunWith(Parameterized.class)
 public class LionTest {
+    private Lion lion;
+
     private final String sex;
 
     private final boolean expectedMane;
@@ -28,9 +30,11 @@ public class LionTest {
 
         Mockito.when(feline.getKittens()).thenReturn(1);
         Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+
+        lion = new Lion(this.sex, feline);
     }
 
-    public LionTest(String sex, boolean expectedMane) {
+    public LionTest(String sex, boolean expectedMane) throws Exception {
         this.sex = sex;
         this.expectedMane = expectedMane;
     }
@@ -45,12 +49,17 @@ public class LionTest {
     }
 
     @Test
-    public void lionParamTest() throws Exception {
-        Lion lion = new Lion(this.sex, feline);
+    public void maneTest(){
         Assert.assertEquals("Грива не соответствует полу",expectedMane, lion.doesHaveMane());
+    }
 
+    @Test
+    public void kittensTest(){
         Assert.assertEquals("Ошибка количества котят",1, lion.getKittens());
+    }
 
+    @Test
+    public void foodTest() throws Exception {
         Assert.assertEquals("Список еды не соответствует еде хищника", List.of("Животные", "Птицы", "Рыба"), lion.getFood());
     }
 }
